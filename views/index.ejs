@@ -1,0 +1,41 @@
+<style>
+  input,
+  select,
+  button {
+    height: 25px;
+  }
+  input {
+    width: 50px;
+  }
+</style>
+<form method="post" action="/">
+  <div style="margin-bottom: 10px">
+    <% for (var i = 0; i < inputNumbers.length; i++) { %>
+      <input name="inputNumbers[]" type="number" value="<%= inputNumbers[i] %>"/>
+    <% } %>
+  </div>
+  <div style="margin-bottom: 10px">
+    検索対象
+    <input
+      name="target"
+      type="number"
+      value="<%= target %>"
+      style="width: 50px"
+    />
+  </div>
+  <div>
+    <select name="algorithm" value="<%= selectedAlgorithm %>">
+      <% for (var i = 0; i < algorithms.length; i++) { %>
+        <% const selected = selectedAlgorithm === algorithms[i].code ? 'selected' : ''; %>
+        <option value="<%= algorithms[i].code %>" <%= selected %>>
+          <%= algorithms[i].name %>
+        </option>
+      <% } %>
+    </select>
+    <button type="submit">検索</button>
+  </div>
+</form>
+<div>
+  <h3>結果</h3>
+  <div style="margin-left: 20px"><%= result %></div>
+</div>
