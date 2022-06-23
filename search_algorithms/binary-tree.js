@@ -84,7 +84,7 @@ module.exports = function (arr, target) {
   // 二分木から対象の値を検索
   const node = searchNode(tree, target);
   if (node) {
-    return node;
+    return { tree, node };
   } else {
     return null;
   }

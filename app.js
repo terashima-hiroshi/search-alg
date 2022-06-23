@@ -51,7 +51,7 @@ app.post("/", (req, res) => {
       } else if (typeof ret === "number") {
         result = ret + 1 + "番目";
       } else if (typeof ret === "object") {
-        result = "ノード：" + JSON.stringify(ret);
+        result = "二分木：" +JSON.stringify(ret.tree) + '\nノード：' + JSON.stringify(ret.node);
       }
 
       const end = new Date().getTime();
