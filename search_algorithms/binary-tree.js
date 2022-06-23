@@ -51,17 +51,17 @@ const createTree = function (arr) {
  * @returns {Node} ノード
  */
 const searchNode = function (node, target) {
-  if (node.value === target) {
-    return node;
-  } else if (target < node.value) {
-    // 検索対象がノードの値をより小さい場合は左の木を検索
-    return searchNode(node.left, target);
-  } else if (node.value < target) {
-    // 検索対象がノードの値をより大きい場合は左の木を検索
-    return searchNode(node.right, target);
+  if (node) {
+    if (node.value === target) {
+      return node;
+    } else if (target < node.value) {
+      // 検索対象がノードの値をより小さい場合は左の木を検索
+      return searchNode(node.left, target);
+    } else if (node.value < target) {
+      // 検索対象がノードの値をより大きい場合は左の木を検索
+      return searchNode(node.right, target);
+    }
   }
-
-  // ありえないパターン
   return null;
 };
 
